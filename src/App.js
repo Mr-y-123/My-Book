@@ -1,5 +1,5 @@
 import "./App.css";
-import Home from "./containers/Home";
+import React from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./containers/Login";
 import About from "./containers/About";
@@ -7,13 +7,18 @@ import SignUp from "./containers/SignUp";
 import { CartProvider } from "./components/ContextReducer";
 import MyOrder from "./containers/MyOrder";
 import Admin from "./admin/Admin";
+const Home=React.lazy(()=>import('./containers/Home'))
 
 function App() {
   return (
     <CartProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />}></Route>
+          
+            <Route path="/" element={<React.Suspense fallback={<>Loading...</>}>
+              <Home/>
+            </React.Suspense>}></Route>
+          
           <Route path="/MyOrder" element={<MyOrder />}></Route>
           <Route path="/Admin" element={<Admin />}></Route>
           <Route path="/About" element={<About />}></Route>

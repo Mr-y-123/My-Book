@@ -11,7 +11,7 @@ const mongoDB = async () => {
     })
     .then(() => {
       console.log("connection");
-    })
+    }) 
     .catch((err) => {
       console.log(err);
     });

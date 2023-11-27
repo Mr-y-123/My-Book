@@ -94,13 +94,13 @@ const Card = (props) => {
           {localStorage.getItem("admin") ? (
             <div className="d-flex justify-content-between align-items-center">
               <button
-                className="btn btn-primary"
+                className="btn btn-outline-success mt-3"
                 onClick={() => props.handleUpdate(bookItem._id)}
               >
                 Edite
               </button>
               <button
-                className="btn btn-primary "
+                className="btn btn-outline-danger mt-3"
                 onClick={() => props.handelDelete(bookItem._id)}
               >
                 Delete
